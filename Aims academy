@@ -1,0 +1,55 @@
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class Student(Person):
+    def __init__(self, name, age, student_id):
+        super().__init__(name, age)
+        self.student_id = student_id
+
+class Teacher(Person):
+    def __init__(self, name, age, teacher_id):
+        super().__init__(name, age)
+        self.teacher_id = teacher_id
+
+class SchoolManagementApp:
+    def __init__(self):
+        self.students = []
+        self.teachers = []
+
+    def add_student(self, student):
+        self.students.append(student)
+
+    def add_teacher(self, teacher):
+        self.teachers.append(teacher)
+
+    def display_students(self):
+        for student in self.students:
+            print(f"Student: {student.name}, ID: {student.student_id}")
+
+    def display_teachers(self):
+        for teacher in self.teachers:
+            print(f"Teacher: {teacher.name}, ID: {teacher.teacher_id}")
+
+
+# Example Usage:
+app = SchoolManagementApp()
+
+student1 = Student("John Doe", 18, "S001")
+student2 = Student("Jane Smith", 17, "S002")
+
+teacher1 = Teacher("Mr. Johnson", 35, "T001")
+teacher2 = Teacher("Ms. Williams", 28, "T002")
+
+app.add_student(student1)
+app.add_student(student2)
+
+app.add_teacher(teacher1)
+app.add_teacher(teacher2)
+
+print("List of Students:")
+app.display_students()
+
+print("\nList of Teachers:")
+app.display_teachers()
